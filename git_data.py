@@ -4,7 +4,6 @@ from pandas import DataFrame
 import threading
 import time
 
-from timeloop import Timeloop
 from datetime import timedelta
 
 
@@ -13,9 +12,9 @@ df = pd.DataFrame(data)
 
 
 Export = df.to_json(
-    r'/home/ishant/ishant_linux/my-website-new/scripts/data/new_data.json')
+    r'data/new_data.json')
 
-with open('/home/ishant/ishant_linux/my-website-new/scripts/data/new_data.json') as f:
+with open('data/new_data.json') as f:
     repos = json.load(f)
 
 # print(repos["full_name"]["0"])
@@ -32,7 +31,7 @@ def repo_data(count):
     print(data)
     df = pd.DataFrame(data)
     Export = df.to_json(
-        r'/home/ishant/ishant_linux/my-website-new/scripts/data/repos/'+str(count)+'.json')
+        r'data/repos/'+str(count)+'.json')
 
 
 for i in range(0, len(repos["full_name"])):
